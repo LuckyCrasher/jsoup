@@ -15,6 +15,7 @@ import java.net.Authenticator;
 import java.net.CookieStore;
 import java.net.Proxy;
 import java.net.URL;
+import java.net.CookieManager;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -324,6 +325,15 @@ public interface Connection {
      @since 1.14.1
      */
     Connection cookieStore(CookieStore cookieStore);
+
+
+    /**
+     Allow for changing of the cookie manager in custom applications with special cookies.
+     Use carefully I have no idea if this is a good idea.
+     @param cookieManager The instance of the cookie manager to be used
+     @return this Connection
+     */
+    Connection cookieManager(CookieManager cookieManager);
 
     /**
      Get the cookie store used by this Connection.
