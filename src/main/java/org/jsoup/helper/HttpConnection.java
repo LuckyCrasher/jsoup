@@ -43,7 +43,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.Inflater;
@@ -316,6 +315,13 @@ public class HttpConnection implements Connection {
     public Connection cookieStore(CookieStore cookieStore) {
         // create a new cookie manager using the new store
         req.cookieManager = new CookieManager(cookieStore, null);
+        return this;
+    }
+
+    @Override
+    public Connection cookieManager(CookieManager cookieManager) {
+        // create a new cookie manager using the new store
+        req.cookieManager = cookieManager;
         return this;
     }
 
